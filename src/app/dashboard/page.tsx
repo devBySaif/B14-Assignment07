@@ -3,7 +3,7 @@ import HomePage from "@/app/page";
 
 export const metadata: Metadata = { title: "ড্যাশবোর্ড" };
 export const dynamic = "force-dynamic";
-
+//dashboard 
 export default function DashboardPage() {
   return <HomePage />;
 }

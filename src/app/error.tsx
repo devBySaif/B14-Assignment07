@@ -14,7 +14,7 @@ export default function AppError({
   useEffect(() => {
     console.error("Page failed to load:", error);
   }, [error]);
-
+// error page
   return (
     <section className="error-page page-container">
       <span className="error-illustration">🌱</span>
