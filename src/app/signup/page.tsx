@@ -5,6 +5,7 @@ import { isAuthConfigured } from "@/lib/auth";
 export const metadata: Metadata = { title: "সাইন আপ" };
 export const dynamic = "force-dynamic";
 
+//sign up page 
 export default async function SignUpPage({
   searchParams,
 }: {
