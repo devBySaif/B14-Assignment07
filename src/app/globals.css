@@ -1310,8 +1310,7 @@ button {
 
 .social-button:hover:not(:disabled) { background: #f8f9f6; }
 .social-button:disabled { cursor: wait; opacity: .65; }
-.google-mark { color: #4285f4; font-size: 14px; font-weight: 900; }
-.github-mark { color: #333; font-size: 18px; }
+.social-provider-logo { width: 18px; height: 18px; object-fit: contain; flex: 0 0 auto; }
 
 .auth-switch {
   margin: 17px 0 0;

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { authClient } from "@/lib/auth-client";
@@ -47,7 +48,14 @@ export function SocialAuthButtons({
         onClick={() => signInWithSocial("google")}
         type="button"
       >
-        <span className="google-mark" aria-hidden="true">G</span>
+        <Image
+          alt=""
+          aria-hidden="true"
+          className="social-provider-logo"
+          height={18}
+          src="/Google-Symbol.png"
+          width={18}
+        />
         {provider === "google"
           ? "সংযোগ হচ্ছে..."
           : googleAuthConfigured
@@ -60,7 +68,14 @@ export function SocialAuthButtons({
         onClick={() => signInWithSocial("github")}
         type="button"
       >
-        <span className="github-mark" aria-hidden="true">●</span>
+        <Image
+          alt=""
+          aria-hidden="true"
+          className="social-provider-logo"
+          height={18}
+          src="/GitHub-Mark-ea2971cee799.png"
+          width={18}
+        />
         {provider === "github"
           ? "সংযোগ হচ্ছে..."
           : githubAuthConfigured
