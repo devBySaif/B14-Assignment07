@@ -6,8 +6,10 @@ import { authClient } from "@/lib/auth-client";
 
 export function SocialAuthButtons({
   callbackURL = "/dashboard",
+  googleAuthConfigured,
 }: {
   callbackURL?: string;
+  googleAuthConfigured: boolean;
 }) {
   const [provider, setProvider] = useState<"google" | "github" | null>(null);
 
@@ -39,12 +41,16 @@ export function SocialAuthButtons({
     <div className="social-auth">
       <button
         className="social-button"
-        disabled={provider !== null}
+        disabled={provider !== null || !googleAuthConfigured}
         onClick={() => signInWithSocial("google")}
         type="button"
       >
         <span className="google-mark" aria-hidden="true">G</span>
-        {provider === "google" ? "সংযোগ হচ্ছে..." : "Google দিয়ে চালিয়ে যান"}
+        {provider === "google"
+          ? "সংযোগ হচ্ছে..."
+          : googleAuthConfigured
+            ? "Google দিয়ে চালিয়ে যান"
+            : "Google login সেটআপ করা হয়নি"}
       </button>
       <button
         className="social-button"

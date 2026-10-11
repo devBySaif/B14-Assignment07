@@ -14,12 +14,14 @@ export function AuthForm({
   protectedRedirect = false,
   registered = false,
   authConfigured,
+  googleAuthConfigured,
 }: {
   mode: "signin" | "signup";
   nextPath?: string;
   protectedRedirect?: boolean;
   registered?: boolean;
   authConfigured: boolean;
+  googleAuthConfigured: boolean;
 }) {
   const router = useRouter();
   const isSignIn = mode === "signin";
@@ -194,7 +196,10 @@ export function AuthForm({
             <span>অথবা</span>
             <span />
           </div>
-          <SocialAuthButtons callbackURL={nextPath} />
+          <SocialAuthButtons
+            callbackURL={nextPath}
+            googleAuthConfigured={googleAuthConfigured}
+          />
           <p className="auth-switch">
             অ্যাকাউন্ট আছে?{" "}
             <Link
@@ -271,7 +276,10 @@ export function AuthForm({
           <span>অথবা</span>
           <span />
         </div>
-        <SocialAuthButtons callbackURL={nextPath} />
+        <SocialAuthButtons
+          callbackURL={nextPath}
+          googleAuthConfigured={googleAuthConfigured}
+        />
         <p className="auth-switch">
           অ্যাকাউন্ট নেই?{" "}
           <Link

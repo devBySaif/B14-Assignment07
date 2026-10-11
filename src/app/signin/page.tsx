@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { AuthForm } from "@/components/auth-form";
-import { isAuthConfigured } from "@/lib/auth";
+import { isAuthConfigured, isGoogleAuthConfigured } from "@/lib/auth";
 
 export const metadata: Metadata = { title: "সাইন ইন" };
 
@@ -29,6 +29,7 @@ export default async function SignInPage({ searchParams }: SignInProps) {
       protectedRedirect={protectedRedirect === "1"}
       registered={registered === "1"}
       authConfigured={isAuthConfigured()}
+      googleAuthConfigured={isGoogleAuthConfigured()}
     />
   );
 }

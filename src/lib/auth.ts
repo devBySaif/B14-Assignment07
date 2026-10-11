@@ -19,6 +19,12 @@ export function isAuthConfigured() {
   );
 }
 
+export function isGoogleAuthConfigured() {
+  return Boolean(
+    process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET,
+  );
+}
+
 export function getAuth() {
   const uri = process.env.MONGODB_URI;
   const secret = process.env.BETTER_AUTH_SECRET;

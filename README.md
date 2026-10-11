@@ -27,7 +27,7 @@
 
 1. Install dependencies with `npm install`.
 2. Copy `.env.example` to `.env.local` and set `BETTER_AUTH_SECRET`. For local development, SQLite is created automatically at `.data/auth.sqlite`; MongoDB is optional.
-3. Add Google and/or GitHub OAuth credentials to enable those social login buttons. Set each provider's callback URL to `http://localhost:3000/api/auth/callback/google` or `/api/auth/callback/github`.
+3. To enable Google login, set `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` in `.env.local` and add `http://localhost:3000/api/auth/callback/google` as an authorized redirect URI in Google Cloud. To enable GitHub login, set its client ID and secret and use `http://localhost:3000/api/auth/callback/github` as its callback URL.
 4. Run `npm run dev` and open `http://localhost:3000`.
 
 The product catalog is loaded from `https://api.api-store.workers.dev/api/bazardor` with `https://api.abcz.workers.dev/api/bazardor` as an alternate source. If both APIs are unavailable, the app serves the saved snapshot at `src/data/bazar-snapshot.json` and clearly warns users that its prices may be outdated. For Vercel deployment, configure `MONGODB_URI` and `BETTER_AUTH_SECRET` in the project environment, then set the production app URL as `BETTER_AUTH_URL` and `NEXT_PUBLIC_APP_URL`. Local SQLite is intended for development and is not persistent on serverless hosts.
