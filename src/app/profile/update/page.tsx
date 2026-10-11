@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { ProfileContent } from "@/components/profile-content";
 import { getReadyAuth, isAuthConfigured } from "@/lib/auth";
 
+//update profile page
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = { title: "তথ্য আপডেট" };
 
