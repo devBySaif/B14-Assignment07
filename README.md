@@ -8,7 +8,7 @@
 - **React 19** and **TypeScript**
 - **Tailwind CSS 4**
 - **Better Auth** for email/password and optional Google and GitHub sign-in
-- **SQLite** for local authentication data and **MongoDB** for persistent deployment storage
+- **MongoDB** for authentication data and persistent deployment storage.
 - **Lucide React** icons and **React Hot Toast** notifications
 
 ## Key Features
