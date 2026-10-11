@@ -25,6 +25,12 @@ export function isGoogleAuthConfigured() {
   );
 }
 
+export function isGitHubAuthConfigured() {
+  return Boolean(
+    process.env.GITHUB_CLIENT_ID && process.env.GITHUB_CLIENT_SECRET,
+  );
+}
+
 export function getAuth() {
   const uri = process.env.MONGODB_URI;
   const secret = process.env.BETTER_AUTH_SECRET;

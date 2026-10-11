@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { AuthForm } from "@/components/auth-form";
-import { isAuthConfigured, isGoogleAuthConfigured } from "@/lib/auth";
+import {
+  isAuthConfigured,
+  isGitHubAuthConfigured,
+  isGoogleAuthConfigured,
+} from "@/lib/auth";
 
 export const metadata: Metadata = { title: "সাইন আপ" };
 export const dynamic = "force-dynamic";
@@ -21,6 +25,7 @@ export default async function SignUpPage({
       nextPath={nextPath}
       authConfigured={isAuthConfigured()}
       googleAuthConfigured={isGoogleAuthConfigured()}
+      githubAuthConfigured={isGitHubAuthConfigured()}
     />
   );
 }

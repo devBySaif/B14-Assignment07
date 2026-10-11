@@ -7,9 +7,11 @@ import { authClient } from "@/lib/auth-client";
 export function SocialAuthButtons({
   callbackURL = "/dashboard",
   googleAuthConfigured,
+  githubAuthConfigured,
 }: {
   callbackURL?: string;
   googleAuthConfigured: boolean;
+  githubAuthConfigured: boolean;
 }) {
   const [provider, setProvider] = useState<"google" | "github" | null>(null);
 
@@ -54,12 +56,16 @@ export function SocialAuthButtons({
       </button>
       <button
         className="social-button"
-        disabled={provider !== null}
+        disabled={provider !== null || !githubAuthConfigured}
         onClick={() => signInWithSocial("github")}
         type="button"
       >
         <span className="github-mark" aria-hidden="true">●</span>
-        {provider === "github" ? "সংযোগ হচ্ছে..." : "GitHub দিয়ে চালিয়ে যান"}
+        {provider === "github"
+          ? "সংযোগ হচ্ছে..."
+          : githubAuthConfigured
+            ? "GitHub দিয়ে চালিয়ে যান"
+            : "GitHub login সেটআপ করা হয়নি"}
       </button>
     </div>
   );
