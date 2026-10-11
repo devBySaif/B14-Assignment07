@@ -1,33 +1,35 @@
 # বাজার দর — BazarDor
 
-বাজার দর is a responsive Bengali-first market-price guide for essential groceries in Bangladesh. Browse today's prices and market trends, compare local bazar prices, and keep track of changes in one place.
+**BazarDor** is a Bengali-first market price guide for everyday groceries in Bangladesh. It helps shoppers check current prices, follow market trends, and compare product prices across local markets.
 
 ## Technologies
 
-- Next.js App Router and React
-- TypeScript
-- Tailwind CSS 4 with custom responsive styling
-- Better Auth with local SQLite or MongoDB, email/password, Google, and GitHub providers
-- Live product and category data from the BazarDor API
-- Lucide icons and react-hot-toast
+- **Next.js 16** with the App Router
+- **React 19** and **TypeScript**
+- **Tailwind CSS 4**
+- **Better Auth** for email/password and optional Google and GitHub sign-in
+- **SQLite** for local authentication data and **MongoDB** for persistent deployment storage
+- **Lucide React** icons and **React Hot Toast** notifications
 
-## Features
+## Key Features
 
-1. Bengali price ticker, date, categories, and mobile-friendly navigation.
-2. Live price-rise and price-fall highlights with Bengali numerals.
-3. Responsive product cards and category pages with numeric price sorting.
-4. Protected product details with market-by-market minimum, maximum, and average prices.
-5. Email/password registration and login, with optional Google and GitHub OAuth.
-6. Successful registration returns users to sign-in; successful sign-in opens the market dashboard.
-7. Profile page and name update form.
-8. Loading skeletons, clear error states, and friendly 404 pages.
-9. A saved market-data snapshot keeps the catalog available during upstream API outages and labels those prices as saved rather than live.
+1. **Bengali-first shopping experience** with Bengali dates, numerals, and responsive navigation.
+2. **Market price trends** highlighting products whose prices have risen or fallen.
+3. **Product and category browsing** with responsive cards and price sorting.
+4. **Market-by-market product details** showing minimum, maximum, and average prices.
+5. **Accounts and resilient catalog access** with email or social sign-in, profile management, and a saved catalog snapshot when live sources are unavailable.
 
-## Getting started
+## Run Locally
 
-1. Install dependencies with `npm install`.
-2. Copy `.env.example` to `.env.local` and set `BETTER_AUTH_SECRET`. For local development, SQLite is created automatically at `.data/auth.sqlite`; MongoDB is optional.
-3. To enable Google login, set `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` in `.env.local` and add `http://localhost:3000/api/auth/callback/google` as an authorized redirect URI in Google Cloud. To enable GitHub login, set `GITHUB_CLIENT_ID` and `GITHUB_CLIENT_SECRET` in `.env.local` and add `http://localhost:3000/api/auth/callback/github` as the authorization callback URL in your GitHub OAuth App settings.
-4. Run `npm run dev` and open `http://localhost:3000`.
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+2. Copy `.env.example` to `.env.local` and set `BETTER_AUTH_SECRET`. Local development creates a SQLite database automatically. Google and GitHub sign-in are optional; configure their client ID and secret in `.env.local` to enable them.
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+4. Open [http://localhost:3000](http://localhost:3000).
 
-The product catalog is loaded from `https://api.api-store.workers.dev/api/bazardor` with `https://api.abcz.workers.dev/api/bazardor` as an alternate source. If both APIs are unavailable, the app serves the saved snapshot at `src/data/bazar-snapshot.json` and clearly warns users that its prices may be outdated. For Vercel deployment, configure `MONGODB_URI` and `BETTER_AUTH_SECRET` in the project environment, then set the production app URL as `BETTER_AUTH_URL` and `NEXT_PUBLIC_APP_URL`. Local SQLite is intended for development and is not persistent on serverless hosts.
+For Vercel deployments, configure `MONGODB_URI` and `BETTER_AUTH_SECRET` in the project environment. Set `BETTER_AUTH_URL` and `NEXT_PUBLIC_APP_URL` to the deployed app URL. Configure each OAuth provider's callback URL for that deployment as well.
